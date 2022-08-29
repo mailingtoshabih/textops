@@ -10,15 +10,11 @@ export const Extraction = ({ data }) => {
 
 
 
-
-
-
-
     return (
         <div className='mt-8'>
 
             <div>
-                <h1 className='text-black font-bold text-3xl'>Extractions</h1>
+                <h1 className='text-white font-bold text-3xl'>Extractions</h1>
             </div>
 
 
@@ -47,19 +43,6 @@ export const Extraction = ({ data }) => {
 
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </div>
