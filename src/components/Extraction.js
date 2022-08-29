@@ -35,7 +35,7 @@ export const Extraction = ({ data }) => {
                     <span className="sr-only">Reset</span>
                 </button> */}
 
-                <textarea id="editor" readOnly="true" rows="8" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0" placeholder="Extracted values are copied here..." required=""
+                <textarea id="editor" readOnly="true" rows="8" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Extracted values are copied here..." required=""
                     value={data}></textarea>
 
 
