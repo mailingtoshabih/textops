@@ -31,14 +31,18 @@ export const Extraction = ({ data }) => {
 
 
 
-// ---------------------methods-------------------------------
+    // ---------------------methods-------------------------------
 
 
-    const reset = () => {
-        setExtract("");
+    const moveToDiary = () => {
+
+        let temp = diary + "\n" + extract
+        setDiary(temp);
     }
 
-// ---------------------methods-------------------------------
+    
+
+    // ---------------------methods-------------------------------
 
 
 
@@ -51,7 +55,7 @@ export const Extraction = ({ data }) => {
         <div className='flex flex-row w-full'>
 
 
-            <div className='mt-8 w-2/5 p-2'>
+            <div className='mt-8 w-2/5 p-1 mr-1'>
 
                 <div>
                     <h1 className='text-white font-bold text-3xl'>Extractions</h1>
@@ -59,18 +63,26 @@ export const Extraction = ({ data }) => {
 
                 <div className="mt-7 mb-10 py-2 px-4 bg-white rounded-lg">
 
-                    <Tippy content='Reset'>
-                        <button onClick={ () => setExtract("") } type="button" className="p-2 text-red-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                            <span className="sr-only">Reset</span>
+
+
+                    <Tippy content='Copy to Diary'>
+                        <button onClick={moveToDiary} type="button" className="p-2 text-gray-900 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                            <span className="sr-only">Move to diary</span>
                         </button>
                     </Tippy>
-
 
                     <Tippy content='Copy to clipboard'>
                         <button onClick={() => { navigator.clipboard.writeText(data) }} type="button" className="p-2 text-green-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
                             <span className="sr-only">Copy</span>
+                        </button>
+                    </Tippy>
+
+                    <Tippy content='Reset'>
+                        <button onClick={() => setExtract("")} type="button" className="p-2 text-red-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            <span className="sr-only">Reset</span>
                         </button>
                     </Tippy>
 
@@ -85,7 +97,9 @@ export const Extraction = ({ data }) => {
 
 
 
-{/* -----------------------------diary----------------------------------------------------------- */}
+
+
+            {/* -----------------------------diary----------------------------------------------------------- */}
 
 
 
@@ -93,7 +107,7 @@ export const Extraction = ({ data }) => {
 
 
 
-            <div className='mt-8 w-3/5 p-2'>
+            <div className='mt-8 w-3/5 p-1 ml-1'>
 
 
                 <div>
@@ -105,7 +119,7 @@ export const Extraction = ({ data }) => {
                 <div className="mt-7 mb-10 py-2 px-4 bg-white rounded-lg">
 
                     <Tippy content='Reset'>
-                        <button onClick={ () => setDiary("")} type="button" className="p-2 text-red-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                        <button onClick={() => setDiary("")} type="button" className="p-2 text-red-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                             <span className="sr-only">Reset</span>
                         </button>
@@ -121,7 +135,7 @@ export const Extraction = ({ data }) => {
 
 
 
-                    <textarea id="editor" rows="10" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Copy your final results here..." required=""
+                    <textarea id="editor" rows="10" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Manage your final product here..." required=""
                         onChange={handleDiary}
                         value={diary}></textarea>
 

@@ -24,16 +24,24 @@ export const Footer = () => {
             <Tippy content='Shabih'>
               <li>
                 <div
-                  className="mr-4 md:mr-6 ">Creator</div>
+                  >Creator</div>
               </li>
             </Tippy>
 
 
             <Tippy content='Click to copy my mail.'>
               <li>
-                <div
+                <div className="m-4 md:mr-6 "
                   onClick={() => { navigator.clipboard.writeText('mailingtoshabih@gmail.com') }}
                 >Contact</div>
+              </li>
+            </Tippy>
+
+            <Tippy content='Visit'>
+              <li>
+                <div
+                  onClick={() => { window.open("https://www.linkedin.com/in/mailingtoshabih") }}
+                >Linkedin</div>
               </li>
             </Tippy>
 
