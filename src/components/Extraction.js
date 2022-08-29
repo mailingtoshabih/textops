@@ -40,7 +40,7 @@ export const Extraction = ({ data }) => {
         setDiary(temp);
     }
 
-    
+
 
     // ---------------------methods-------------------------------
 
@@ -58,7 +58,7 @@ export const Extraction = ({ data }) => {
             <div className='mt-8 w-2/5 p-1 mr-1'>
 
                 <div>
-                    <h1 className='text-white font-bold text-3xl'>Extractions</h1>
+                    <h1 className='text-white font-semibold text-3xl'>Extractions</h1>
                 </div>
 
                 <div className="mt-7 mb-10 py-2 px-4 bg-white rounded-lg">
@@ -111,7 +111,7 @@ export const Extraction = ({ data }) => {
 
 
                 <div>
-                    <h1 className='text-white font-bold text-3xl'>Diary</h1>
+                    <h1 className='text-white font-semibold text-3xl'>Diary</h1>
                 </div>
 
 
