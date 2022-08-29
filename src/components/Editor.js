@@ -5,6 +5,8 @@ import { useState } from 'react'
 import Tippy from '@tippy.js/react'
 import 'tippy.js/dist/tippy.css'
 
+import getUrls from 'get-urls';
+
 
 
 
@@ -174,9 +176,24 @@ export const Editor = () => {
     }
 
 
-
     const resetTextarea = () => {
         setText("");
+    }
+
+
+    const extractUrl = () => {
+        let urls = getUrls(text)
+        let tempstr = ""
+        for (const url of urls) {
+            tempstr = tempstr + "\n" + url;
+        }
+        setExtract(tempstr);
+    }
+
+
+    const removeUrl = () => {
+        let temp = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+        setText(temp);
     }
 
 
@@ -230,6 +247,14 @@ export const Editor = () => {
                                     </button>
                                 </Tippy>
 
+                                <Tippy content='Capitalize'>
+                                    <button onClick={capitalizeEachWord} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                                        <span className="sr-only">Capitalize</span>
+                                    </button>
+                                </Tippy>
+
+
                                 <Tippy content='Remove Extra Spaces'>
                                     <button onClick={removeExtraSpaces} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
@@ -239,17 +264,11 @@ export const Editor = () => {
 
                                 <Tippy content='Remove all spaces'>
                                     <button onClick={removeAllSpaces} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" /></svg>
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" /></svg>
                                         <span className="sr-only">Remove all spaces</span>
                                     </button>
                                 </Tippy>
 
-                                <Tippy content='Capitalize'>
-                                    <button onClick={capitalizeEachWord} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-                                        <span className="sr-only">Capitalize</span>
-                                    </button>
-                                </Tippy>
 
                                 <Tippy content='Remove all symbols'>
                                     <button onClick={removeAllSymbols} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
@@ -262,6 +281,13 @@ export const Editor = () => {
                                     <button onClick={removeAllNumbers} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                         <span className="sr-only">Remove all numbers</span>
+                                    </button>
+                                </Tippy>
+
+                                <Tippy content='Remove URLs'>
+                                    <button onClick={removeUrl} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" /></svg>
+                                        <span className="sr-only">Remove URLs</span>
                                     </button>
                                 </Tippy>
 
@@ -285,6 +311,15 @@ export const Editor = () => {
                                         <span className="sr-only">Extract Emails</span>
                                     </button>
                                 </Tippy>
+
+
+                                <Tippy content='Extract URLs'>
+                                    <button onClick={extractUrl} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                                        <span className="sr-only">Extract URLs</span>
+                                    </button>
+                                </Tippy>
+
 
                                 <Tippy content='Print sentences line by line'>
                                     <button onClick={lineByLine} type="button" className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
@@ -341,11 +376,11 @@ export const Editor = () => {
                 </div>
 
 
-                <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
                     Approx. Reading Time : {Math.round((text.length) * 0.10)} sec
                 </span>
 
-                <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span className="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
                     {text.length} Characters
                 </span>
 
