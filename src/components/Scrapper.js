@@ -61,17 +61,20 @@ export const Scrapper = () => {
 
     const nextLine = () => {
 
-        let sentence = arr;
-        sentence = sentence[count].split(" ");
-        setIndex(sentence);
+        if (data !== "") {
 
-        let counter = count;
-        counter += 1;
-        setCount(counter);
+            let sentence = arr;
+            sentence = sentence[count].split(" ");
+            setIndex(sentence);
 
-        // To add \n at end of line in extracts column
-        if (extracts !== "") {
-            setExtracts(extracts + "\n");
+            let counter = count;
+            counter += 1;
+            setCount(counter);
+
+            // To add \n at end of line in extracts column
+            if (extracts !== "") {
+                setExtracts(extracts + "\n");
+            }
         }
 
     }

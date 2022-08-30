@@ -23,6 +23,19 @@ export const Footer = () => {
           </Link>
 
           <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+            <Link to="/">
+              <li>
+                <div className="m-4 md:mr-6>">Home</div>
+              </li>
+            </Link>
+
+            <Link to="/scrapper">
+              <li>
+                <div className="m-4 md:mr-6>">Scrapper</div>
+              </li>
+            </Link>
+
+
             <Tippy content='Shabih'>
               <li>
                 <div
