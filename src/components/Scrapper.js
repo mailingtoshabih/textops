@@ -1,8 +1,6 @@
 import Tippy from '@tippy.js/react'
 import { useState, useEffect } from 'react'
 import 'tippy.js/dist/tippy.css'
-import { Link } from 'react-router-dom'
-
 
 
 
