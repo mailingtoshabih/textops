@@ -43,6 +43,8 @@ export const Scrapper = () => {
     useEffect(() => {
         setData(data);
 
+        
+
         let temp = data;
         temp = temp.split("\n");
         setArr(temp);
@@ -51,6 +53,7 @@ export const Scrapper = () => {
 
 
     useEffect(() => {
+        window.scroll(0,0);
         removeBlankLinesExtracts();
     });
     // , [extracts]
@@ -98,10 +101,10 @@ export const Scrapper = () => {
         <>
 
 
-            <div className='flex flex-row w-full'>
+            <div className='block md:flex w-full'>
 
 
-                <div className='h w-3/5 p-1 mr-1'>
+                <div className='w-full lg:w-3/5 p-1'>
 
                     <div>
                         <h1 className='text-white font-medium text-xl'>Data</h1>
@@ -146,10 +149,10 @@ export const Scrapper = () => {
 
 
 
-                <div className='  w-1/4 p-1 m-1 '>
+                <div className='w-full lg:w-1/4 p-1 h-fit'>
 
                     <h1 className='text-white font-medium text-xl'>Playground</h1>
-                    <div className="h-5/6   mt-2 mb-10 py-1 px-4 bg-white rounded-lg">
+                    <div className="h-fit mt-2 mb-10 p-1 bg-white rounded-lg">
 
                         <Tippy content='Restart Indexing'>
                             <button type="button" className="p-2 text-orange-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 "
@@ -167,13 +170,13 @@ export const Scrapper = () => {
                         </Tippy>
 
 
-                        <div className=" block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" >
+                        <div className="block px-0 w-full text-sm text-gray-800 bg-white outline-none" >
 
-                            <div class="overflow-auto h-96 mt-1">
+                            <div className="overflow-auto h-fit mt-1">
                                 <table className="w-full text-sm text-left text-gray-500">
                                     <thead className="text-sm text-gray-700 uppercase bg-gray-100">
                                         <tr>
-                                            <th scope="col" class="py-1 px-6">
+                                            <th scope="col" className="py-1 px-2">
                                                 {count !== 0 ? `Line ${count}` : "Index Empty. Click the green arrow to start from Line 1."}
                                             </th>
                                         </tr>
@@ -187,7 +190,7 @@ export const Scrapper = () => {
 
                                                     <tr className="bg-white border-b hover:bg-gray-100 "
                                                         onClick={() => setExtracts(extracts + " " + word)}>
-                                                        <th scope="row" class="py-1 px-3 text-sm text-gray-600  whitespace-nowrap">
+                                                        <th scope="row" className="py-1 px-3 text-sm text-gray-600  whitespace-nowrap">
                                                             {word}
                                                         </th>
                                                     </tr>
@@ -208,7 +211,7 @@ export const Scrapper = () => {
 
 
 
-                <div className=' w-2/5 p-1 ml-1'>
+                <div className=' w-full lg:w-2/5 p-1'>
                     <h1 className='text-white font-medium text-xl'>Extracts</h1>
                     <div className="mt-3 mb-10 py-1 px-4 bg-white rounded-lg">
 

@@ -52,18 +52,16 @@ export const Extraction = ({ data }) => {
 
     return (
 
-        <div className='flex flex-row w-full'>
+        <div className='block md:flex  w-full'>
 
 
-            <div className='mt-8 w-2/5 p-1 mr-1'>
+            <div className='mt-2 w-full md:w-2/5 p-1 mr-1'>
 
                 <div>
                     <h1 className='text-white font-medium text-xl'>Extracts</h1>
                 </div>
 
-                <div className="mt-2 mb-10 py-2 px-4 bg-white rounded-lg">
-
-
+                <div className=" mt-2 mb-10 py-2 px-4 bg-white rounded-lg">
 
                     <Tippy content='Copy to Diary'>
                         <button onClick={moveToDiary} type="button" className="p-2 text-gray-900 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
@@ -86,7 +84,11 @@ export const Extraction = ({ data }) => {
                         </button>
                     </Tippy>
 
-                    <textarea id="editor" readOnly={true} rows="10" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Extracted values are copied here..." required=""
+                    <textarea id="editor" 
+                        readOnly={true} 
+                        rows="10" 
+                        className="block px-0 w-full text-sm text-gray-800 bg-white outline-none" 
+                        placeholder="Extracted values are copied here..." required=""
                         value={extract}></textarea>
 
                 </div>
@@ -102,12 +104,7 @@ export const Extraction = ({ data }) => {
             {/* -----------------------------diary----------------------------------------------------------- */}
 
 
-
-
-
-
-
-            <div className='mt-8 w-3/5 p-1 ml-1'>
+            <div className='mt-2 w-full md:w-3/5 p-1 m-auto'>
 
 
                 <div>
@@ -135,9 +132,11 @@ export const Extraction = ({ data }) => {
 
 
 
-                    <textarea id="editor" rows="10" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Manage your final product here..." required=""
-                        onChange={handleDiary}
-                        value={diary}></textarea>
+                    <div>
+                        <textarea id="editor" rows="10" className="block px-0 w-full text-sm text-gray-800 bg-white border-none focus:ring-0 outline-none" placeholder="Manage your final product here..." required=""
+                            onChange={handleDiary}
+                            value={diary}></textarea>
+                    </div>
 
 
 

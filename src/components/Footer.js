@@ -10,35 +10,34 @@ export const Footer = () => {
   return (
     <>
 
-      <footer className="p-4 bg-gray-800 md:px-6 md:py-8">
+      <footer className="p-4 bg-gray-900 md:px-6 md:py-8">
 
 
 
         <div className="sm:flex sm:items-center sm:justify-between">
-          <Link to="/">
-            <div className="flex items-center mb-4 sm:mb-0">
-              <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-8" alt="Flowbite Logo" />
-              <span className="text-white self-center text-2xl font-semibold whitespace-nowrap ">Scraply</span>
-            </div>
-          </Link>
+          <div className="w-full text-white font-bold text-3xl">
+            <Link to="/">
+              Scraply
+            </Link>
+          </div>
 
           <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
             <Link to="/">
               <li>
-                <div className="m-4 md:mr-6>">Home</div>
+                <div className="m-4 md:mr-6 cursor-pointer">Home</div>
               </li>
             </Link>
 
             <Link to="/scrapper">
               <li>
-                <div className="m-4 md:mr-6>">Scrapper</div>
+                <div className="m-4 md:mr-6 cursor-pointer>">Scrapper</div>
               </li>
             </Link>
 
 
             <Tippy content='Shabih'>
               <li>
-                <div
+                <div className='cursor-pointer'
                 >Creator</div>
               </li>
             </Tippy>
@@ -46,7 +45,7 @@ export const Footer = () => {
 
             <Tippy content='Click to copy my mail.'>
               <li>
-                <div className="m-4 md:mr-6 "
+                <div className="m-4 md:mr-6 cursor-pointer"
                   onClick={() => { navigator.clipboard.writeText('mailingtoshabih@gmail.com') }}
                 >Contact</div>
               </li>
@@ -54,7 +53,7 @@ export const Footer = () => {
 
             <Tippy content='Visit'>
               <li>
-                <div
+                <div className='cursor-pointer'
                   onClick={() => { window.open("https://www.linkedin.com/in/mailingtoshabih") }}
                 >Linkedin</div>
               </li>
@@ -67,8 +66,9 @@ export const Footer = () => {
 
 
         <span className="block text-sm text-white sm:text-center dark:text-gray-400">
-          © 2022 Scraply. All Rights Reserved.
+          © 2023 Scraply. All Rights Reserved.
         </span>
+
       </footer>
 
     </>
